@@ -1,5 +1,8 @@
 package cr.consultingservices.DA
 
+import cr.consultingservices.User
+
+
 class Avaluo {
 	Double latitud
 	Double longitud
@@ -8,7 +11,7 @@ class Avaluo {
 	Canton canton
 	String otrasSenas
 	Double valorEstimado
-	Usuario creador
+	User creador
 	List<Comentario> comentarios
 	//List<Imagen> imagenes
 	// imagenes de un avaluo
@@ -23,7 +26,7 @@ class Avaluo {
 	byte[] imagen9
 	byte[] imagen10
 	
-	static belongsTo = [creador: Usuario]
+	static belongsTo = [creador: User]
 	
 	static hasMany = [comentarios:Comentario]
 	
