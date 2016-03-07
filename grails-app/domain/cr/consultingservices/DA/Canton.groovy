@@ -6,4 +6,8 @@ class Canton {
     static constraints = {
 		nombreCanton(nullable:false)
     }
+	
+	String toString() {
+		return nombreCanton
+	}
 }

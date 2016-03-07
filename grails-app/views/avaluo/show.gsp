@@ -90,16 +90,79 @@
 				<li class="fieldcontain">
 					<span id="comentarios-label" class="property-label"><g:message code="avaluo.comentarios.label" default="Comentarios" /></span>
 					
-						<span class="property-value" aria-labelledby="comentarios-label"><g:fieldValue bean="${avaluoInstance}" field="comentarios"/></span>
+						<g:each in="${avaluoInstance.comentarios}" var="c">
+						<span class="property-value" aria-labelledby="comentarios-label"><g:link controller="comentario" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${avaluoInstance?.imagenes}">
+				<g:if test="${avaluoInstance?.imagen1}">
 				<li class="fieldcontain">
-					<span id="imagenes-label" class="property-label"><g:message code="avaluo.imagenes.label" default="Imagenes" /></span>
+					<span id="imagen1-label" class="property-label"><g:message code="avaluo.imagen1.label" default="Imagen1" /></span>
 					
-						<span class="property-value" aria-labelledby="imagenes-label"><g:fieldValue bean="${avaluoInstance}" field="imagenes"/></span>
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen2}">
+				<li class="fieldcontain">
+					<span id="imagen2-label" class="property-label"><g:message code="avaluo.imagen2.label" default="Imagen2" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen3}">
+				<li class="fieldcontain">
+					<span id="imagen3-label" class="property-label"><g:message code="avaluo.imagen3.label" default="Imagen3" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen4}">
+				<li class="fieldcontain">
+					<span id="imagen4-label" class="property-label"><g:message code="avaluo.imagen4.label" default="Imagen4" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen5}">
+				<li class="fieldcontain">
+					<span id="imagen5-label" class="property-label"><g:message code="avaluo.imagen5.label" default="Imagen5" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen6}">
+				<li class="fieldcontain">
+					<span id="imagen6-label" class="property-label"><g:message code="avaluo.imagen6.label" default="Imagen6" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen7}">
+				<li class="fieldcontain">
+					<span id="imagen7-label" class="property-label"><g:message code="avaluo.imagen7.label" default="Imagen7" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen8}">
+				<li class="fieldcontain">
+					<span id="imagen8-label" class="property-label"><g:message code="avaluo.imagen8.label" default="Imagen8" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen9}">
+				<li class="fieldcontain">
+					<span id="imagen9-label" class="property-label"><g:message code="avaluo.imagen9.label" default="Imagen9" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${avaluoInstance?.imagen10}">
+				<li class="fieldcontain">
+					<span id="imagen10-label" class="property-label"><g:message code="avaluo.imagen10.label" default="Imagen10" /></span>
 					
 				</li>
 				</g:if>

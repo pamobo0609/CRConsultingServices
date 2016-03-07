@@ -10,4 +10,8 @@ class Provincia {
 		nombreProvincia(nullable:false)
 		cantones(nullable:false)
     }
+	
+	String toString() {
+		return nombreProvincia
+	}
 }

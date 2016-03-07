@@ -1,13 +1,11 @@
 <%@ page import="cr.consultingservices.DA.Avaluo" %>
 
-
-
 <div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'descripcion', 'error')} required">
 	<label for="descripcion">
 		<g:message code="avaluo.descripcion.label" default="Descripcion" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descripcion" required="" value="${avaluoInstance?.descripcion}"/>
+	<g:textArea name="descripcion" required="" value="${avaluoInstance?.descripcion}"/>
 
 </div>
 
@@ -16,7 +14,7 @@
 		<g:message code="avaluo.latitud.label" default="Latitud" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="latitud" value="${fieldValue(bean: avaluoInstance, field: 'latitud')}" required=""/>
+	<g:field name="latitud" value="${fieldValue(bean: avaluoInstance, field: 'latitud')}" required="" type="number"/>
 
 </div>
 
@@ -25,7 +23,7 @@
 		<g:message code="avaluo.longitud.label" default="Longitud" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="longitud" value="${fieldValue(bean: avaluoInstance, field: 'longitud')}" required=""/>
+	<g:field name="longitud" value="${fieldValue(bean: avaluoInstance, field: 'longitud')}" required="" type="number"/>
 
 </div>
 
@@ -34,7 +32,7 @@
 		<g:message code="avaluo.provincia.label" default="Provincia" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="provincia" name="provincia.id" from="${cr.consultingservices.DA.Provincia.list()}" optionKey="id" required="" value="${avaluoInstance?.provincia?.id}" class="many-to-one"/>
+	<g:select id="provincia" name="provincia.nombreProvincia" from="${cr.consultingservices.DA.Provincia.list()}" optionKey="id" required="" value="${avaluoInstance?.provincia?.nombreProvincia}" class="many-to-one"/>
 
 </div>
 
@@ -52,16 +50,7 @@
 		<g:message code="avaluo.otrasSenas.label" default="Otras Senas" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="otrasSenas" required="" value="${avaluoInstance?.otrasSenas}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'creador', 'error')} required">
-	<label for="creador">
-		<g:message code="avaluo.creador.label" default="Creador" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="creador" name="creador.id" from="${cr.consultingservices.DA.Usuario.list()}" optionKey="id" required="" value="${avaluoInstance?.creador?.id}" class="many-to-one"/>
+	<g:textArea name="otrasSenas" required="" value="${avaluoInstance?.otrasSenas}"/>
 
 </div>
 
@@ -70,25 +59,106 @@
 		<g:message code="avaluo.comentarios.label" default="Comentarios" />
 		
 	</label>
-	
+	<g:select name="comentarios" from="${cr.consultingservices.DA.Comentario.list()}" multiple="multiple" optionKey="id" size="5" value="${avaluoInstance?.comentarios*.id}" class="many-to-many"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagenes', 'error')} ">
-	<label for="imagenes">
-		<g:message code="avaluo.imagenes.label" default="Imagenes" />
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen1', 'error')} ">
+	<label for="imagen1">
+		<g:message code="avaluo.imagen1.label" default="Imagen1" />
 		
 	</label>
-	
+	<input type="file" id="imagen1" name="imagen1" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'valorEstimado', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen2', 'error')} ">
+	<label for="imagen2">
+		<g:message code="avaluo.imagen2.label" default="Imagen2" />
+		
+	</label>
+	<input type="file" id="imagen2" name="imagen2" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen3', 'error')} ">
+	<label for="imagen3">
+		<g:message code="avaluo.imagen3.label" default="Imagen3" />
+		
+	</label>
+	<input type="file" id="imagen3" name="imagen3" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen4', 'error')} ">
+	<label for="imagen4">
+		<g:message code="avaluo.imagen4.label" default="Imagen4" />
+		
+	</label>
+	<input type="file" id="imagen4" name="imagen4" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen5', 'error')} ">
+	<label for="imagen5">
+		<g:message code="avaluo.imagen5.label" default="Imagen5" />
+		
+	</label>
+	<input type="file" id="imagen5" name="imagen5" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen6', 'error')} ">
+	<label for="imagen6">
+		<g:message code="avaluo.imagen6.label" default="Imagen6" />
+		
+	</label>
+	<input type="file" id="imagen6" name="imagen6" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen7', 'error')} ">
+	<label for="imagen7">
+		<g:message code="avaluo.imagen7.label" default="Imagen7" />
+		
+	</label>
+	<input type="file" id="imagen7" name="imagen7" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen8', 'error')} ">
+	<label for="imagen8">
+		<g:message code="avaluo.imagen8.label" default="Imagen8" />
+		
+	</label>
+	<input type="file" id="imagen8" name="imagen8" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen9', 'error')} ">
+	<label for="imagen9">
+		<g:message code="avaluo.imagen9.label" default="Imagen9" />
+		
+	</label>
+	<input type="file" id="imagen9" name="imagen9" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen10', 'error')} ">
+	<label for="imagen10">
+		<g:message code="avaluo.imagen10.label" default="Imagen10" />
+		
+	</label>
+	<input type="file" id="imagen10" name="imagen10" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'valorEstimado')} required">
 	<label for="valorEstimado">
-		<g:message code="avaluo.valorEstimado.label" default="Valor Estimado" />
+		<g:message code="avaluo.valorEstimado.label" default="Valor estimado" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="valorEstimado" value="${fieldValue(bean: avaluoInstance, field: 'valorEstimado')}" required=""/>
+	<g:textField name="valorEstimado" value="${fieldValue(bean: avaluoInstance, 'valorEstimado') }"/>
 
 </div>
 

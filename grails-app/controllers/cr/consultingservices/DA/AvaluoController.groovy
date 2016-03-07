@@ -1,7 +1,5 @@
 package cr.consultingservices.DA
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
