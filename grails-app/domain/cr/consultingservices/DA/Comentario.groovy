@@ -1,11 +1,14 @@
 package cr.consultingservices.DA
 
+import cr.consultingservices.User
+
+
 class Comentario {
 	String comentario
-	Usuario usuario
+	User usuario
 	Date fechaPosteado
 	
-	static belongsTo = [usuario :Usuario]
+	static belongsTo = [usuario :User]
 	
     static constraints = {
 		comentario(nullable:false)
