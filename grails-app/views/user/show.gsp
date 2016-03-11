@@ -6,8 +6,135 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		
+		
+		
 	</head>
 	<body>
+	<div id="base" class="">
+
+      <!-- Unnamed (menuBarLogged) -->
+
+      <!-- Unnamed (Shape) -->
+      <div id="u1" class="ax_shape">
+        <img id="u1_img" class="img " src="images/profile/u1.png"/>
+        <!-- Unnamed () -->
+        <div id="u2" class="text">
+          <p><span></span></p>
+        </div>
+      </div>
+
+      <!-- btnHomeProfile (HTML Button) -->
+      <div id="u3" class="ax_html_button" data-label="btnHomeProfile">
+        <input id="u3_input" type="submit" value="HOME"/>
+      </div>
+
+      <!-- btnProfileProfile (HTML Button) -->
+      <div id="u4" class="ax_html_button" data-label="btnProfileProfile">
+        <input id="u4_input" type="submit" value="PROFILE"/>
+      </div>
+
+      <!-- Unnamed (HTML Button) -->
+      <div id="u5" class="ax_html_button">
+        <input id="u5_input" type="submit" value="BROWSE PROJECTS"/>
+      </div>
+
+      <!-- Unnamed (HTML Button) -->
+      <div id="u6" class="ax_html_button">
+        <input id="u6_input" type="submit" value="MY PROJECTS"/>
+      </div>
+
+      <!-- btnSignOutProfile (HTML Button) -->
+      <div id="u7" class="ax_html_button" data-label="btnSignOutProfile">
+        <input id="u7_input" type="submit" value="SIGN OUT"/>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u8" class="ax_shape">
+        <img id="u8_img" class="img " src="images/register/u7.png"/>
+        <!-- Unnamed () -->
+        <div id="u9" class="text">
+          <p><span>PROFILE PICTURE</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u10" class="ax_h1">
+        <img id="u10_img" class="img " src="resources/images/transparent.gif"/>
+        <!-- Unnamed () -->
+        <div id="u11" class="text">
+          <p><span>Your Lastname, Name</span></p>
+        </div>
+      </div>
+
+      <!-- btnReportsLogged (HTML Button) -->
+      <div id="u12" class="ax_html_button" data-label="btnReportsLogged">
+        <input id="u12_input" type="submit" value="REPORTS"/>
+      </div>
+
+      <!-- btnGoCalcu (HTML Button) -->
+      <div id="u13" class="ax_html_button" data-label="btnGoCalcu">
+        <input id="u13_input" type="submit" value="CALCULATOR"/>
+      </div>
+
+      <!-- txtLastNameProfile (Text Field) -->
+      <div id="u14" class="ax_text_field" data-label="txtLastNameProfile">
+        <input id="u14_input" type="text" value="Your Lastname"/>
+      </div>
+
+      <!-- txtNameProfile (Text Field) -->
+      <div id="u15" class="ax_text_field" data-label="txtNameProfile">
+        <input id="u15_input" type="text" value="You Name"/>
+      </div>
+
+      <!-- txtEmailProfile (Text Field) -->
+      <div id="u16" class="ax_text_field" data-label="txtEmailProfile">
+        <input id="u16_input" type="text" value="Your email"/>
+      </div>
+
+      <!-- txtPhoneProfile (Text Field) -->
+      <div id="u17" class="ax_text_field" data-label="txtPhoneProfile">
+        <input id="u17_input" type="text" value="Your phone"/>
+      </div>
+
+      <!-- Unnamed (footer) -->
+
+      <!-- footer (Shape) -->
+      <div id="u19" class="ax_shape" data-label="footer">
+        <img id="u19_img" class="img " src="images/register/footer_u25.png"/>
+        <!-- Unnamed () -->
+        <div id="u20" class="text">
+          <p><span>FOOTER</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (HTML Button) -->
+      <div id="u21" class="ax_html_button">
+        <input id="u21_input" type="submit" value="SAVE INFORMATION"/>
+      </div>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		<a href="#show-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
