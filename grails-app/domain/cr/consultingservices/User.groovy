@@ -22,6 +22,8 @@ class User implements Serializable {
 	String nombre
 	String apellido1
 	String apellido2
+	byte[] profilePic
+	String tel
 
 	User(String username, String password) {
 		this()
@@ -47,6 +49,7 @@ class User implements Serializable {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
 
+	
 	static transients = ['springSecurityService']
 
 	static constraints = {
@@ -55,6 +58,8 @@ class User implements Serializable {
 		nombre blank:false
 		apellido1 blank:false
 		apellido2 blank:false
+		profilePic blank:false
+		tel blank:false
 	}
 
 	static mapping = {

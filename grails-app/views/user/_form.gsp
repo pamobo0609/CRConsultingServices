@@ -1,5 +1,14 @@
 <%@ page import="cr.consultingservices.User" %>
 
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'profilePic', 'error')} ">
+	<label for="profilePic">
+		<g:message code="user.profilePic.label" default="Foto de perfil" />
+		
+	</label>
+	<input type="file" id="profilePic" name="profilePic" />
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'username', 'error')} required">
 	<label for="username">
 		<g:message code="user.username.label" default="Username" />
@@ -15,6 +24,15 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="password" required="" value="${userInstance?.password}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'tel', 'error')} required">
+	<label for="tel">
+		<g:message code="user.tel.label" default="Telefono" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="tel" required="" value="${userInstance?.tel}"/>
 
 </div>
 

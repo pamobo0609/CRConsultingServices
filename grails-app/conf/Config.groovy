@@ -123,13 +123,14 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'cr.consultings
 grails.plugin.springsecurity.authority.className = 'cr.consultingservices.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	//DEVELOPER ONLY!
-	'/Role': ['permitAll'],
-	'/User': ['permitAll'],
-	'/UserRole': ['permitAll'],
+	'/Role': ['ROLE_ADMIN', 'ROLE_USER'],
+	'/User': ['ROLE_ADMIN', 'ROLE_USER'],
+	'/UserRole': ['ROLE_ADMIN', 'ROLE_USER'],
+	'/Avaluo/**' : ['ROLE_ADMIN', 'ROLE_USER'],
 	//
-	'/':                ['permitAll'],
-	'/index':           ['permitAll'],
-	'/index.gsp':       ['permitAll'],
+	'/':                ['ROLE_ADMIN', 'ROLE_USER'],
+	'/index':           ['ROLE_ADMIN', 'ROLE_USER'],
+	'/index.gsp':       ['ROLE_ADMIN', 'ROLE_USER'],
 	'/assets/**':       ['permitAll'],
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],

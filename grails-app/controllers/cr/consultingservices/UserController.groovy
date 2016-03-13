@@ -5,16 +5,25 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured('permitAll')
+@Secured('ROLE_ADMIN')
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def springSecurityService
 
+	def logout() {
+		session.invalidate()
+		redirect(action: "login")
+	}
+	
+	@Secured('ROLE_ADMIN')
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond User.list(params), model:[userInstanceCount: User.count()]
+		if (springSecurityService.currentUser?.username) 
+			redirect (action: 'show', id: springSecurityService.currentUser.id)
     }
 
+	@Secured('ROLE_ADMIN')
     def show(User userInstance) {
         respond userInstance
     }

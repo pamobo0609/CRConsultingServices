@@ -5,13 +5,34 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class AvaluoController {
+	static scaffold	= true
+	// call to service
+	def avaluoService
+	// spring security current user
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+		ArrayList<Avaluo> myProjects
+		
+		if ((myProjects = avaluoService.getMyProjects(springSecurityService.currentUser)) != null ) {
+			//if (myProjects.size() > 0)
+				[avaluos :myProjects.drop(params.int('offset')?:0).take(params.int('max')?:10), avaluoInstanceCount: myProjects.size()]
+			//else
+				//render 'No hay proyectos todavia'
+		}
+		else
+			respond 'error'
+		
+		/*
         params.max = Math.min(max ?: 10, 100)
-        respond Avaluo.list(params), model:[avaluoInstanceCount: Avaluo.count()]
+        respond Avaluo.list(params), model:[avaluoInstanceCount: Avaluo.count()]*/
     }
+	
+	def search() {
+		
+	}
 
     def show(Avaluo avaluoInstance) {
         respond avaluoInstance

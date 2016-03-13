@@ -26,6 +26,14 @@ class Avaluo {
 	byte[] imagen9
 	byte[] imagen10
 	
+	static searchFields = {
+		provincia
+		canton
+		latitud
+		longitud
+		valorEstimado
+	}
+	
 	static belongsTo = [creador: User]
 	
 	static hasMany = [comentarios:Comentario]
@@ -52,4 +60,13 @@ class Avaluo {
 		imagen9(nullable:true)
 		imagen10(nullable:true)
     }
+	
+	Avaluo(double latitud, double longitud, String descripcion, Provincia provincia, Canton canton, String otrasSenas) {
+		this.latitud = latitud
+		this.longitud = longitud
+		this.descripcion = descripcion
+		this.provincia = provincia
+		this.canton = canton
+		this.otrasSenas = otrasSenas
+	}
 }
