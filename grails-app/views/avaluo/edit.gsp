@@ -32,9 +32,11 @@
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
+				<g:if "${avaluoInstance.getCreador()}=="${User.get(springSecurityService.currentUser.id) }">
 				<fieldset class="buttons">
 					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
+				</g:if>
 			</g:form>
 		</div>
 	</body>

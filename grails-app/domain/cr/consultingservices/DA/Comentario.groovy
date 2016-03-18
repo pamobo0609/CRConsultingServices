@@ -15,4 +15,8 @@ class Comentario {
 		usuario(nullable:false)
 		fechaPosteado(nullable:false)
     }
+	
+	String toString() {
+		return comentario
+	}
 }

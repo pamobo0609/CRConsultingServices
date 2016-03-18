@@ -1,6 +1,7 @@
 package cr.consultingservices.DA
 
 import static org.springframework.http.HttpStatus.*
+import cr.consultingservices.User;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -14,13 +15,13 @@ class AvaluoController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-		ArrayList<Avaluo> myProjects
+		ArrayList<Avaluo> myProjects = null
 		
 		if ((myProjects = avaluoService.getMyProjects(springSecurityService.currentUser)) != null ) {
-			//if (myProjects.size() > 0)
-				[avaluos :myProjects.drop(params.int('offset')?:0).take(params.int('max')?:10), avaluoInstanceCount: myProjects.size()]
-			//else
-				//render 'No hay proyectos todavia'
+			if (myProjects.size() > 0)
+				respond myProjects, model: [avaluoInstanceCount: myProjects.size()]//[avaluos :myProjects.drop(params.int('offset')?:0).take(params.int('max')?:10), avaluoInstanceCount: myProjects.size()]
+			else
+				render 'No hay proyectos todavia'
 		}
 		else
 			respond 'error'
@@ -30,11 +31,22 @@ class AvaluoController {
         respond Avaluo.list(params), model:[avaluoInstanceCount: Avaluo.count()]*/
     }
 	
+	/** Busca entre los avaluos ya creados */
 	def search() {
-		
+		ArrayList<Avaluo> results = avaluoService.search(params.valorEstimado, Provincia.findByNombreProvincia(params.nombreProvincia), Canton.findByNombreCanton(params.nombreCanton))
+		if (results != null) {
+			if(results.size() != 0) {
+				respond results, model:[avaluoInstanceCount: results.size()]
+			}
+		}
 	}
 
     def show(Avaluo avaluoInstance) {
+		if(avaluoInstance.comentarios.size() == 0)
+			ArrayList<Comentario> comments = avaluoService.getComments(avaluoInstance.creador.id)
+			if (comments != null && comments.size() > 0)
+				avaluoInstance.setComentarios(comments)
+		
         respond avaluoInstance
     }
 
@@ -50,16 +62,27 @@ class AvaluoController {
         }
 
         if (avaluoInstance.hasErrors()) {
-            respond avaluoInstance.errors, view:'create'
-            return
+			if(avaluoInstance.getUser() == null) {
+				avaluoInstance.setCreador(User.get(springSecurityService.currentUser.id))
+				avaluoInstance.setProvincia(Provincia.get(params.provincia.nombreProvincia))
+			}
+			
+			else {
+				respond avaluoInstance.errors, view:'create'
+				return
+			}
         }
 
-        avaluoInstance.save flush:true
+		
+		//avaluoInstance.setCreador(User.findByUsername(springSecurityService.currentUser))
+        avaluoInstance.save (flush:true, failOnError:true)
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'avaluo.label', default: 'Avaluo'), avaluoInstance.id])
                 redirect avaluoInstance
+				//redirect (action: 'show', id: avaluoInstance.id)
+				//render "Success"
             }
             '*' { respond avaluoInstance, [status: CREATED] }
         }

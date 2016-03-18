@@ -14,7 +14,7 @@
 		<g:message code="avaluo.latitud.label" default="Latitud" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="latitud" value="${fieldValue(bean: avaluoInstance, field: 'latitud')}" required="" type="number"/>
+	<g:field name="latitud" value="${fieldValue(bean: avaluoInstance, field: 'latitud')}" required="" type="float"/>
 
 </div>
 
@@ -23,7 +23,7 @@
 		<g:message code="avaluo.longitud.label" default="Longitud" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="longitud" value="${fieldValue(bean: avaluoInstance, field: 'longitud')}" required="" type="number"/>
+	<g:field name="longitud" value="${fieldValue(bean: avaluoInstance, field: 'longitud')}" required="" type="float"/>
 
 </div>
 
@@ -32,7 +32,7 @@
 		<g:message code="avaluo.provincia.label" default="Provincia" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="provincia" name="provincia.nombreProvincia" from="${cr.consultingservices.DA.Provincia.list()}" optionKey="id" required="" value="${avaluoInstance?.provincia?.nombreProvincia}" class="many-to-one"/>
+	<g:select id="provincia" name="provincia.id" from="${cr.consultingservices.DA.Provincia.list()}" optionKey="id" required="" value="${avaluoInstance?.provincia?.id}" class="many-to-one"/>
 
 </div>
 
@@ -51,15 +51,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textArea name="otrasSenas" required="" value="${avaluoInstance?.otrasSenas}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'comentarios', 'error')} ">
-	<label for="comentarios">
-		<g:message code="avaluo.comentarios.label" default="Comentarios" />
-		
-	</label>
-	<g:select name="comentarios" from="${cr.consultingservices.DA.Comentario.list()}" multiple="multiple" optionKey="id" size="5" value="${avaluoInstance?.comentarios*.id}" class="many-to-many"/>
 
 </div>
 
@@ -162,3 +153,11 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'comentarios', 'error')} required">
+	<label for="comentarios">
+		<g:message code="avaluo.comentarios.label" default="Comentarios" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textArea name="comentarios" required="" value="${avaluoInstance?.comentarios}"/>
+
+</div>
