@@ -76,13 +76,13 @@ class AvaluoService {
 		if (avaluoId == 0) return null
 		else {
 			ArrayList<Comentario> comments = new ArrayList<Comentario>()
-			def select = """select usuario_id
+			def select = """select comentario_id
 							from crconsultingservices.avaluo_comentario, crconsultingservices.comentario
 							where crconsultingservices.avaluo_comentario.avaluo_comentarios_id = ${avaluoId} 
 									and crconsultingservices.avaluo_comentario.comentario_id = crconsultingservices.comentario.id """
 			def sql = new Sql(dataSource)
 			sql.eachRow(select) {
-				comments.add(Comentario.get(it.usuario_id))
+				comments.add(Comentario?.get(it.comentario_id))
 			}
 			return comments
 		}

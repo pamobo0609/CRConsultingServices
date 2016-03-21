@@ -5,7 +5,6 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured('ROLE_ADMIN')
 class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -31,8 +30,8 @@ class UserController {
     def create() {
         respond new User(params)
     }
-
-    @Transactional
+	
+	@Secured('ROLE_ADMIN')
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
@@ -40,16 +39,31 @@ class UserController {
         }
 
         if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'create'
-            return
+			if (userInstance.profilePic != null) {
+            	respond userInstance.errors, view:'create'
+				return
+			}
+			else {
+				/** Se extrae la imagen de perfil */
+				def profilePic = params.profilePic
+				userInstance.profilePic = profilePic.getBytes()
+			}
         }
+		
+		/** Se setean los datos faltantes */
+		userInstance.setAccountExpired(false)
+		userInstance.setAccountLocked(false)
+		userInstance.setPasswordExpired(false)
+		userInstance.setEnabled(false)
+		/** Se setean el role que va a tener el usuario nuevo, por lo general un ROLE_USER y se salva */
 
-        userInstance.save flush:true
+		userInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
+                //redirect userInstance
+				redirect (action: 'show', id: User.findByUsername(userInstance.getUsername()).id)
             }
             '*' { respond userInstance, [status: CREATED] }
         }

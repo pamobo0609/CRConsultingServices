@@ -114,6 +114,10 @@
 			</p>
 		</form>
 	</div>
+	<div>
+		<a href="/CRConsultingServices/user/create">Registrarse</a>
+		<!-- <a href="/CRConsultingServices/user/create">Registrarse</a> -->
+	</div>
 </div>
 <script type='text/javascript'>
 (function() {

@@ -46,6 +46,8 @@ class AvaluoController {
 			ArrayList<Comentario> comments = avaluoService.getComments(avaluoInstance.creador.id)
 			if (comments != null && comments.size() > 0)
 				avaluoInstance.setComentarios(comments)
+			else
+				avaluoInstance.setComentarios(null)
 		
         respond avaluoInstance
     }
