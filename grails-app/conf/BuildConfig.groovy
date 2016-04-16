@@ -72,7 +72,8 @@ grails.project.dependency.resolution = {
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
-		
+		//map
+		compile "org.grails.plugins:geoip:0.3.3"
 		// database
 		compile "org.grails.plugins:mysql-connectorj:5.1.22.1"
 		// security

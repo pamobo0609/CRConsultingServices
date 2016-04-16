@@ -22,7 +22,7 @@ class User implements Serializable {
 	String nombre
 	String apellido1
 	String apellido2
-	byte[] profilePic
+	String profilePic
 	String tel
 
 	User(String username, String password) {
@@ -58,7 +58,7 @@ class User implements Serializable {
 		nombre blank:false
 		apellido1 blank:false
 		apellido2 blank:false
-		profilePic blank:false, maxSize:20000
+		profilePic nullable:true
 		tel blank:false
 	}
 
@@ -136,14 +136,6 @@ class User implements Serializable {
 
 	public void setApellido2(String apellido2) {
 		this.apellido2 = apellido2;
-	}
-
-	public byte[] getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(byte[] profilePic) {
-		this.profilePic = profilePic;
 	}
 
 	public String getTel() {

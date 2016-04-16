@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
-@Secured('permitAll')
+@Secured('ROLE_ADMIN')
 class UserRoleController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -43,8 +43,8 @@ class UserRoleController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'userRole.label', default: 'UserRole'), userRoleInstance.id])
-                //redirect userRoleInstance
-				redirect action:'show/${userRoleInstance?.id}', method: "GET"
+                redirect userRoleInstance
+				//redirect action:'show/${userRoleInstance?.id}', method: "GET"
             }
             '*' { respond userRoleInstance, [status: CREATED] }
         }

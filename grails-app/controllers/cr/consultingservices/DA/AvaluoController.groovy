@@ -3,6 +3,7 @@ package cr.consultingservices.DA
 import static org.springframework.http.HttpStatus.*
 import cr.consultingservices.User;
 import grails.transaction.Transactional
+import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 @Transactional(readOnly = true)
 class AvaluoController {
@@ -42,13 +43,14 @@ class AvaluoController {
 	}
 
     def show(Avaluo avaluoInstance) {
+		/*
 		if(avaluoInstance.comentarios.size() == 0)
 			ArrayList<Comentario> comments = avaluoService.getComments(avaluoInstance.creador.id)
 			if (comments != null && comments.size() > 0)
 				avaluoInstance.setComentarios(comments)
 			else
 				avaluoInstance.setComentarios(null)
-		
+		*/
         respond avaluoInstance
     }
 
@@ -63,16 +65,15 @@ class AvaluoController {
             return
         }
 
+		User u = User.get(springSecurityService.currentUser.id)
+		avaluoInstance.setCreador(u)
+		
+		CommonsMultipartFile file = params.list("imagen1")?.getAt(0)
+		avaluoInstance.setImagen1(file.bytes)
+		
         if (avaluoInstance.hasErrors()) {
-			if(avaluoInstance.getUser() == null) {
-				avaluoInstance.setCreador(User.get(springSecurityService.currentUser.id))
-				avaluoInstance.setProvincia(Provincia.get(params.provincia.nombreProvincia))
-			}
-			
-			else {
-				respond avaluoInstance.errors, view:'create'
-				return
-			}
+			respond avaluoInstance.errors, view:'create'
+			return
         }
 
 		
@@ -83,8 +84,6 @@ class AvaluoController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'avaluo.label', default: 'Avaluo'), avaluoInstance.id])
                 redirect avaluoInstance
-				//redirect (action: 'show', id: avaluoInstance.id)
-				//render "Success"
             }
             '*' { respond avaluoInstance, [status: CREATED] }
         }

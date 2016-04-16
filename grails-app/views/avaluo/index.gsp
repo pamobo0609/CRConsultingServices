@@ -11,12 +11,12 @@
 		<a href="#list-avaluo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="Home"/></a></li>
+				<li><g:link class="create" action="create"><g:message code="Crear avaluo" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-avaluo" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1 style="color:#0B77B8"><g:message code="Mis avaluos" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -42,17 +42,17 @@
 				<g:each in="${avaluoInstanceList}" status="i" var="avaluoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${avaluoInstance.id}">${fieldValue(bean: avaluoInstance, field: "descripcion")}</g:link></td>
+						<td><g:link action="show" style="color:#939598;" id="${avaluoInstance.id}">${fieldValue(bean: avaluoInstance, field: "descripcion")}</g:link></td>
 					
-						<td>${fieldValue(bean: avaluoInstance, field: "latitud")}</td>
+						<td style="color:#939598;">${fieldValue(bean: avaluoInstance, field: "latitud")}</td>
 					
-						<td>${fieldValue(bean: avaluoInstance, field: "longitud")}</td>
+						<td style="color:#939598;">${fieldValue(bean: avaluoInstance, field: "longitud")}</td>
 					
-						<td>${fieldValue(bean: avaluoInstance, field: "provincia")}</td>
+						<td style="color:#939598;">${fieldValue(bean: avaluoInstance, field: "provincia")}</td>
 					
-						<td>${fieldValue(bean: avaluoInstance, field: "canton")}</td>
+						<td style="color:#939598;">${fieldValue(bean: avaluoInstance, field: "canton")}</td>
 					
-						<td>${fieldValue(bean: avaluoInstance, field: "otrasSenas")}</td>
+						<td style="color:#939598;">${fieldValue(bean: avaluoInstance, field: "otrasSenas")}</td>
 					
 					</tr>
 				</g:each>

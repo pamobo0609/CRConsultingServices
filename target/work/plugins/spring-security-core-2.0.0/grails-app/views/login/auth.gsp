@@ -14,11 +14,7 @@
 		padding-bottom: 6px;
 		margin: 60px auto;
 		text-align: left;
-		border: 1px solid #aab;
-		background-color: #f0f0fa;
-		-moz-box-shadow: 2px 2px 2px #eee;
-		-webkit-box-shadow: 2px 2px 2px #eee;
-		-khtml-box-shadow: 2px 2px 2px #eee;
+		background-color: #00000;
 		box-shadow: 2px 2px 2px #eee;
 	}
 

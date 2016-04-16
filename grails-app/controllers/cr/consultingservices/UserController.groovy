@@ -2,7 +2,9 @@ package cr.consultingservices
 
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.annotation.Secured
+import cr.consultingservices.UserRole
 import grails.transaction.Transactional
+import org.springframework.web.multipart.commons.CommonsMultipartFile
 
 @Transactional(readOnly = true)
 class UserController {
@@ -10,6 +12,7 @@ class UserController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	def springSecurityService
+	def userService
 
 	def logout() {
 		session.invalidate()
@@ -31,24 +34,19 @@ class UserController {
         respond new User(params)
     }
 	
-	@Secured('ROLE_ADMIN')
+	@Secured('permitAll')
+	@Transactional
     def save(User userInstance) {
         if (userInstance == null) {
             notFound()
             return
         }
-
+					
         if (userInstance.hasErrors()) {
-			if (userInstance.profilePic != null) {
             	respond userInstance.errors, view:'create'
 				return
-			}
-			else {
-				/** Se extrae la imagen de perfil */
-				def profilePic = params.profilePic
-				userInstance.profilePic = profilePic.getBytes()
-			}
         }
+		
 		
 		/** Se setean los datos faltantes */
 		userInstance.setAccountExpired(false)
@@ -58,12 +56,13 @@ class UserController {
 		/** Se setean el role que va a tener el usuario nuevo, por lo general un ROLE_USER y se salva */
 
 		userInstance.save flush:true
+		
+		UserRole.create(userInstance, Role.findByAuthority('ROLE_USER'))
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                //redirect userInstance
-				redirect (action: 'show', id: User.findByUsername(userInstance.getUsername()).id)
+                redirect userInstance
             }
             '*' { respond userInstance, [status: CREATED] }
         }
@@ -73,6 +72,7 @@ class UserController {
         respond userInstance
     }
 
+	@Secured('permitAll')
     @Transactional
     def update(User userInstance) {
         if (userInstance == null) {

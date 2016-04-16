@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Bienvenido a la aplicacion para el control de avaluos!</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -64,6 +64,10 @@
 				list-style-position: inside;
 				margin: 0.25em 0;
 			}
+			
+			.page-body{
+				
+			}
 
 			@media screen and (max-width: 480px) {
 				#status {
@@ -76,43 +80,21 @@
 
 				#page-body h1 {
 					margin-top: 0;
+					float: right;
+    				width: 300px;
+    				border: 3px solid #73AD21;
+    				padding: 10px;
 				}
 			}
 		</style>
 	</head>
 	<body>
-		<form name="logout" method="POST" action="${createLink(controller:'logout') }">
-		<input type="submit" value="logout"></form>
-	
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${GroovySystem.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
+			<h1 style="color:#939598; margin-bottom:20px; margin-right:50px">Bienvenido a la aplicacion para el manejo de avaluos!</h1>
+			<div style="margin-left:30dp">
+			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/user/">Mi perfil</a>
+			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/avaluo/create">Crear avaluo</a>
+			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/avaluo/">Mis avaluos</a>
 			</div>
 		</div>
 	</body>

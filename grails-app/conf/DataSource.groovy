@@ -25,13 +25,13 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/crconsultingservices?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://209.40.195.105/crconsultingservices?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/crconsultingservices?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/crconsultingservices_ver1?useUnicode=yes&characterEncoding=UTF-8"
             properties {
                // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
                jmxEnabled = true

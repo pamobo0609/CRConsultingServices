@@ -54,6 +54,23 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'observaciones', 'error')} required">
+	<label for="observaciones">
+		<g:message code="avaluo.observaciones.label" default="Observaciones" />
+	</label>
+	<g:textArea name="observaciones" required="" value="${avaluoInstance?.observaciones}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'valorEstimado')} required">
+	<label for="valorEstimado">
+		<g:message code="avaluo.valorEstimado.label" default="Valor estimado" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="valorEstimado" value="${fieldValue(bean: avaluoInstance, 'valorEstimado') }"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'imagen1', 'error')} ">
 	<label for="imagen1">
 		<g:message code="avaluo.imagen1.label" default="Imagen1" />
@@ -141,23 +158,5 @@
 		
 	</label>
 	<input type="file" id="imagen10" name="imagen10" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'valorEstimado')} required">
-	<label for="valorEstimado">
-		<g:message code="avaluo.valorEstimado.label" default="Valor estimado" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="valorEstimado" value="${fieldValue(bean: avaluoInstance, 'valorEstimado') }"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'comentarios', 'error')} required">
-	<label for="comentarios">
-		<g:message code="avaluo.comentarios.label" default="Comentarios" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textArea name="comentarios" required="" value="${avaluoInstance?.comentarios}"/>
 
 </div>

@@ -108,9 +108,10 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background: #FFFFFF;
 	color: #000;
 	clear: both;
+	box-shadow: 2px 2px 2px #eee;
 	font-size: 0.8em;
 	margin-top: 1.5em;
 	padding: 1em;
@@ -237,6 +238,7 @@ fieldset,
 .fieldcontain .property-value {
 	display: block;
 	margin-left: 27%;
+	color:black;
 }
 
 label {

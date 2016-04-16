@@ -1,4 +1,4 @@
-package cr.consultingservices.DA
+ package cr.consultingservices.DA
 
 import java.util.List;
 
@@ -31,8 +31,9 @@ class AvaluoService {
 			Provincia provincia = Provincia.get(it.provincia_id)
 			Canton canton = Canton.get(it.canton_id)
 			String otrasSenas = it.otras_senas
+			String observaciones = it.observaciones
 			
-			listA.add(new Avaluo(id, latitud, longitud, descripcion, provincia, canton, otrasSenas))
+			listA.add(new Avaluo(id, latitud, longitud, descripcion, provincia, canton, otrasSenas, observaciones))
 		}
 		return listA
 	}

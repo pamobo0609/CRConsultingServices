@@ -13,6 +13,7 @@ class Avaluo {
 	Double valorEstimado
 	User creador
 	List<Comentario> comentarios
+	String observaciones
 	//List<Imagen> imagenes
 	// imagenes de un avaluo
 	byte[] imagen1
@@ -39,13 +40,14 @@ class Avaluo {
 	static hasMany = [comentarios:Comentario]
 	
     static constraints = {
+		observaciones(nullable:true)
 		descripcion(nullable: false)
 		latitud(blank:true)
 		longitud(blank:true)
 		provincia(nullable:false)
 		canton(nullable:false)
 		otrasSenas(blank:false)
-		creador(nullable:false)
+		creador(nullable:true)
 		comentarios(nullable:true)
 		//imagenes(nullable:true)
 		// maximo 10 imagenes por avaluo
@@ -61,7 +63,7 @@ class Avaluo {
 		imagen10(nullable:true)
     }
 	
-	Avaluo(long id, double latitud, double longitud, String descripcion, Provincia provincia, Canton canton, String otrasSenas) {
+	Avaluo(long id, double latitud, double longitud, String descripcion, Provincia provincia, Canton canton, String otrasSenas, String observaciones) {
 		this.id = id
 		this.latitud = latitud
 		this.longitud = longitud
@@ -69,6 +71,15 @@ class Avaluo {
 		this.provincia = provincia
 		this.canton = canton
 		this.otrasSenas = otrasSenas
+		this.observaciones = observaciones
+	}
+	
+	public String getObservaciones() {
+		return observaciones;
+	}
+	
+	public void setObservaciones(String o) {
+		this.observaciones = o;
 	}
 	
 	public User getUser() {

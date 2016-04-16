@@ -1,8 +1,11 @@
 <%@ page import="cr.consultingservices.User" %>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'profilePic', 'error')} ">
-	<label for="profilePic"> <g:message code="user.profilePic.label" default="Foto de perfil (Tamaño maximo 2MB, Formatos valido PNG y JPG)" /> <span class="required-indicator">*</span>
-	</label><input type="file" id="upload" name="profilePic" value="${userInstance?.profilePic}" />
+<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'profilePic', 'error')} required">
+	<label for="profilePic">
+		<g:message code="user.profilePic.label" default="Foto de perfil" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="profilePic" required="" value="${userInstance?.profilePic}"/>
 
 </div>
 
