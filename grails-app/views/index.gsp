@@ -41,7 +41,7 @@
 			}
 
 			#page-body {
-				margin: 2em 1em 1.25em 18em;
+				
 			}
 
 			h2 {
@@ -82,7 +82,6 @@
 					margin-top: 0;
 					float: right;
     				width: 300px;
-    				border: 3px solid #73AD21;
     				padding: 10px;
 				}
 			}
@@ -90,8 +89,8 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1 style="color:#939598; margin-bottom:20px; margin-right:50px">Bienvenido a la aplicacion para el manejo de avaluos!</h1>
-			<div style="margin-left:30dp">
+			<h1 style="color:#939598; margin-bottom:20px; margin-left:50px">Bienvenido a la aplicacion para el manejo de avaluos!</h1>
+			<div style="margin-left:35px">
 			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/user/">Mi perfil</a>
 			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/avaluo/create">Crear avaluo</a>
 			<a style="color:black;border: 3px solid #0B77B8; padding:3px 3px 3px 3px;" href="/CRConsultingServices/avaluo/">Mis avaluos</a>

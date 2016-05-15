@@ -9,11 +9,17 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 		
 		<meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-		
+    	<meta charset="utf-8">
+		<style>
+      		#map {
+        		height: 100%;
+        		overflow:visible;
+        		background-color:black;
+      		}
+    </style>
 		
 	</head>
-	<body>
+	<body onload="initMap()">
 		<a href="#show-avaluo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -83,13 +89,26 @@
 				</li>
 				</g:if>
 				
-
-			    
-			    <li class="fieldcontain">
-			    	<span style="color:#939598" id="map-label" class="property-label"><g:message code="Mapa de localizacion" default="Mapa de localizacion" /></span>
-			    	<div id="map" style="height:100%"></div>
-			    
-			    </li>
+				<script>
+				var map;
+				function initMap() {
+				  map = new google.maps.Map(document.getElementById('map'), {
+				    center: {lat: -34.397, lng: 150.644},
+				    zoom: 8
+				  });
+				}
+				window.addEventListener('load', initMap, false)
+				</script>
+    			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATyoneVleIc_TNlkML6km1YfLw_LxO99Q&callback=initMap"
+        		async defer></script>
+				
+				
+				
+				<li class="fieldcontain">
+					<span style="color:#939598" id="map-label" class="property-label"><g:message code="mapa" default="Mapa" /></span>
+					<div id="map">
+					</div>
+				</li>
 				
 			
 				<g:if test="${avaluoInstance?.creador}">

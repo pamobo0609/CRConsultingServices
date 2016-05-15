@@ -14,7 +14,7 @@
 			</ul>
 		</div>
 		<div id="create-avaluo" class="content scaffold-create" role="main">
-			<h1 style="color:#0B77B8"><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h1 style="color:#0B77B8"><g:message code="Crear avaluo" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>

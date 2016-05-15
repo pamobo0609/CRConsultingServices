@@ -1,0 +1,115 @@
+import cr.consultingservices.DA.Avaluo
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_CRConsultingServices_avaluo_form_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/avaluo/_form.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'descripcion', 'error'))
+printHtmlPart(1)
+invokeTag('message','g',5,['code':("avaluo.descripcion.label"),'default':("Descripcion")],-1)
+printHtmlPart(2)
+invokeTag('textArea','g',8,['name':("descripcion"),'required':(""),'value':(avaluoInstance?.descripcion)],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'latitud', 'error'))
+printHtmlPart(4)
+invokeTag('message','g',14,['code':("avaluo.latitud.label"),'default':("Latitud")],-1)
+printHtmlPart(2)
+invokeTag('field','g',17,['name':("latitud"),'value':(fieldValue(bean: avaluoInstance, field: 'latitud')),'required':(""),'type':("float")],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'longitud', 'error'))
+printHtmlPart(5)
+invokeTag('message','g',23,['code':("avaluo.longitud.label"),'default':("Longitud")],-1)
+printHtmlPart(2)
+invokeTag('field','g',26,['name':("longitud"),'value':(fieldValue(bean: avaluoInstance, field: 'longitud')),'required':(""),'type':("float")],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'provincia', 'error'))
+printHtmlPart(6)
+invokeTag('message','g',32,['code':("avaluo.provincia.label"),'default':("Provincia")],-1)
+printHtmlPart(2)
+invokeTag('select','g',35,['id':("provincia"),'name':("provincia.id"),'from':(cr.consultingservices.DA.Provincia.list()),'optionKey':("id"),'required':(""),'value':(avaluoInstance?.provincia?.id),'class':("many-to-one")],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'canton', 'error'))
+printHtmlPart(7)
+invokeTag('message','g',41,['code':("avaluo.canton.label"),'default':("Canton")],-1)
+printHtmlPart(2)
+invokeTag('select','g',44,['id':("canton"),'name':("canton.id"),'from':(cr.consultingservices.DA.Canton.list()),'optionKey':("id"),'required':(""),'value':(avaluoInstance?.canton?.id),'class':("many-to-one")],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'otrasSenas', 'error'))
+printHtmlPart(8)
+invokeTag('message','g',50,['code':("avaluo.otrasSenas.label"),'default':("Otras Senas")],-1)
+printHtmlPart(2)
+invokeTag('textArea','g',53,['name':("otrasSenas"),'required':(""),'value':(avaluoInstance?.otrasSenas)],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'observaciones', 'error'))
+printHtmlPart(9)
+invokeTag('message','g',59,['code':("avaluo.observaciones.label"),'default':("Observaciones")],-1)
+printHtmlPart(10)
+invokeTag('textArea','g',61,['name':("observaciones"),'required':(""),'value':(avaluoInstance?.observaciones)],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'valorEstimado'))
+printHtmlPart(11)
+invokeTag('message','g',67,['code':("avaluo.valorEstimado.label"),'default':("Valor estimado")],-1)
+printHtmlPart(2)
+invokeTag('textField','g',70,['name':("valorEstimado"),'value':(fieldValue(bean: avaluoInstance, 'valorEstimado'))],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen1', 'error'))
+printHtmlPart(12)
+invokeTag('message','g',76,['code':("avaluo.imagen1.label"),'default':("Imagen1")],-1)
+printHtmlPart(13)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen2', 'error'))
+printHtmlPart(14)
+invokeTag('message','g',85,['code':("avaluo.imagen2.label"),'default':("Imagen2")],-1)
+printHtmlPart(15)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen3', 'error'))
+printHtmlPart(16)
+invokeTag('message','g',94,['code':("avaluo.imagen3.label"),'default':("Imagen3")],-1)
+printHtmlPart(17)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen4', 'error'))
+printHtmlPart(18)
+invokeTag('message','g',103,['code':("avaluo.imagen4.label"),'default':("Imagen4")],-1)
+printHtmlPart(19)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen5', 'error'))
+printHtmlPart(20)
+invokeTag('message','g',112,['code':("avaluo.imagen5.label"),'default':("Imagen5")],-1)
+printHtmlPart(21)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen6', 'error'))
+printHtmlPart(22)
+invokeTag('message','g',121,['code':("avaluo.imagen6.label"),'default':("Imagen6")],-1)
+printHtmlPart(23)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen7', 'error'))
+printHtmlPart(24)
+invokeTag('message','g',130,['code':("avaluo.imagen7.label"),'default':("Imagen7")],-1)
+printHtmlPart(25)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen8', 'error'))
+printHtmlPart(26)
+invokeTag('message','g',139,['code':("avaluo.imagen8.label"),'default':("Imagen8")],-1)
+printHtmlPart(27)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen9', 'error'))
+printHtmlPart(28)
+invokeTag('message','g',148,['code':("avaluo.imagen9.label"),'default':("Imagen9")],-1)
+printHtmlPart(29)
+expressionOut.print(hasErrors(bean: avaluoInstance, field: 'imagen10', 'error'))
+printHtmlPart(30)
+invokeTag('message','g',157,['code':("avaluo.imagen10.label"),'default':("Imagen10")],-1)
+printHtmlPart(31)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1460783598182L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

@@ -14,7 +14,7 @@
 		<g:message code="user.username.label" default="Correo eletronico" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="username" required="" value="${userInstance?.username}"/>
+	<g:textField style="color:#939598" name="username" required="" value="${userInstance?.username}"/>
 
 </div>
 
