@@ -27,6 +27,57 @@
 
 </div>
 
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+// Determine support for Geolocation
+if (navigator.geolocation) {
+	// Locate position
+	navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+} else {
+	alert('Parece que los servicios de localizacion no son soportados por este navegador. Por favor utilice uno que lo soporte.');
+}
+
+// Success callback function
+function displayPosition(pos) {
+	var mylat = pos.coords.latitude;
+	var mylong = pos.coords.longitude;
+	
+	var longitude = document.getElementById("longitud");
+	longitude.value = mylong;
+	var lattitude = document.getElementById("latitud");
+	lattitude.value = mylat;
+
+//Load Google Map
+var latlng = new google.maps.LatLng(mylat, mylong);
+	var myOptions = {
+		zoom: 15,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+	};
+
+var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+//Add marker
+var marker = new google.maps.Marker({
+		 position: latlng,
+		 map: map,
+		 title:"You are here"
+	 });
+}
+
+// Error callback function
+function errorFunction(pos) {
+	alert('Error!');
+}
+</script>
+
+<style type="text/css">
+	#map_canvas {
+		height: 85%;
+		width: 100%;
+	}
+	</style>
+
 <div class="fieldcontain ${hasErrors(bean: avaluoInstance, field: 'provincia', 'error')} required">
 	<label for="provincia">
 		<g:message code="avaluo.provincia.label" default="Provincia" />

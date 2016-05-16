@@ -13,7 +13,7 @@ class AvaluoController {
 	// spring security current user
 	def springSecurityService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
 		ArrayList<Avaluo> myProjects = null
@@ -134,6 +134,61 @@ class AvaluoController {
             '*'{ render status: NO_CONTENT }
         }
     }
+	
+	def loadImage(Avaluo avaluoInstance, int imageId) {
+		switch (imageId) {
+			case 1:
+			response.outputStream << avaluoInstance.imagen1
+			response.outputStream.flush()
+			break;
+			
+			case 2:
+			response.outputStream << avaluoInstance.imagen2
+			response.outputStream.flush()
+			break;
+			
+			case 3:
+			response.outputStream << avaluoInstance.imagen3
+			response.outputStream.flush()
+			break;
+			
+			case 4:
+			response.outputStream << avaluoInstance.imagen4
+			response.outputStream.flush()
+			break;
+			
+			case 5:
+			response.outputStream << avaluoInstance.imagen5
+			response.outputStream.flush()
+			break;
+			
+			case 6:
+			response.outputStream << avaluoInstance.imagen6
+			response.outputStream.flush()
+			break;
+			
+			case 7:
+			response.outputStream << avaluoInstance.imagen7
+			response.outputStream.flush()
+			break;
+			
+			case 8:
+			response.outputStream << avaluoInstance.imagen8
+			response.outputStream.flush()
+			break;
+			
+			case 9:
+			response.outputStream << avaluoInstance.imagen9
+			response.outputStream.flush()
+			break;
+			
+			case 10:
+			response.outputStream << avaluoInstance.imagen10
+			response.outputStream.flush()
+			break;
+			
+		}
+	}
 
     protected void notFound() {
         request.withFormat {

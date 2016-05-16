@@ -19,7 +19,7 @@
     </style>
 		
 	</head>
-	<body onload="initMap()">
+	<body>
 		<a href="#show-avaluo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -88,28 +88,6 @@
 					
 				</li>
 				</g:if>
-				
-				<script>
-				var map;
-				function initMap() {
-				  map = new google.maps.Map(document.getElementById('map'), {
-				    center: {lat: -34.397, lng: 150.644},
-				    zoom: 8
-				  });
-				}
-				window.addEventListener('load', initMap, false)
-				</script>
-    			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATyoneVleIc_TNlkML6km1YfLw_LxO99Q&callback=initMap"
-        		async defer></script>
-				
-				
-				
-				<li class="fieldcontain">
-					<span style="color:#939598" id="map-label" class="property-label"><g:message code="mapa" default="Mapa" /></span>
-					<div id="map">
-					</div>
-				</li>
-				
 			
 				<g:if test="${avaluoInstance?.creador}">
 				<li class="fieldcontain">
@@ -135,69 +113,72 @@
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen1-label" class="property-label"><g:message code="Imagen 1" default="Imagen 1" /></span>
 					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:1], id:"${avaluoInstance.id}")}" width='300' />
+					
+					<!-- <img  src="${createLink(controller:'Avaluo', action:'loadImage', id:"${avaluoInstance.id}", imageId:"2")}" width='300' /> -->
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen2}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen2-label" class="property-label"><g:message code="Imagen 2" default="Imagen 2" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:2], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen3}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen3-label" class="property-label"><g:message code="Imagen 3" default="Imagen 3" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:3], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen4}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen4-label" class="property-label"><g:message code="Imagen 4" default="Imagen 4" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:4], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen5}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen5-label" class="property-label"><g:message code="Imagen 5" default="Imagen 5" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:5], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen6}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen6-label" class="property-label"><g:message code="Imagen 6" default="Imagen 6" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:6], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen7}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen7-label" class="property-label"><g:message code="Imagen 7" default="Imagen 7" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:7], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen8}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen8-label" class="property-label"><g:message code="Imagen 8" default="Imagen 8" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:8], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen9}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen9-label" class="property-label"><g:message code="Imagen 9" default="Imagen 9" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:9], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
 				<g:if test="${avaluoInstance?.imagen10}">
 				<li class="fieldcontain">
 					<span style="color:#939598" id="imagen10-label" class="property-label"><g:message code="Imagen 10" default="Imagen 10" /></span>
-					
+					<img  src="${createLink(controller:'Avaluo', action:'loadImage', params:[imageId:10], id:"${avaluoInstance.id}")}" width='300' />
 				</li>
 				</g:if>
 			
