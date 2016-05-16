@@ -2,6 +2,7 @@ package cr.consultingservices.DA
 
 import static org.springframework.http.HttpStatus.*
 import cr.consultingservices.User;
+import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 
@@ -15,6 +16,7 @@ class AvaluoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
+	@Secured('ROLE_ADMIN')
     def index(Integer max) {
 		ArrayList<Avaluo> myProjects = null
 		

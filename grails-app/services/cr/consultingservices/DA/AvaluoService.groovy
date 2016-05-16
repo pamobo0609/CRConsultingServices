@@ -22,6 +22,7 @@ class AvaluoService {
 			
 		ArrayList<Avaluo> listA = new ArrayList<Avaluo>()
 		String query = "SELECT * FROM crconsultingservices.avaluo WHERE creador_id = ${u.id};"
+		println query
 		def sql = new Sql(dataSource)
 		def row = sql.eachRow(query) {
 			long id = it.id
