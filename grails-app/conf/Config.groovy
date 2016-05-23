@@ -124,8 +124,8 @@ grails.plugin.springsecurity.authority.className = 'cr.consultingservices.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	//DEVELOPER ONLY!
 	'/Role': ['ROLE_ADMIN'],
-	'/User':['ROLE_ADMIN', 'ROLE_USER'],
-	'/User/create': ['ROLE_USER'],
+	'/User/':['ROLE_ADMIN', 'ROLE_USER'],
+	'/User/create': ['permitAll'],
 	'/User/show' :['ROLE_ADMIN', 'ROLE_USER'],
 	'/User/save' :['ROLE_ADMIN', 'ROLE_USER'],
 	'/User/edit' :['ROLE_ADMIN', 'ROLE_USER'],

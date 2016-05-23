@@ -69,6 +69,7 @@ class UserController {
     }
 
     def edit(User userInstance) {
+		userInstance.password = "*******"
         respond userInstance
     }
 
@@ -85,6 +86,12 @@ class UserController {
             return
         }
 
+		println userInstance.password
+		
+		//userInstance.beforeInsert()
+		
+		println userInstance.password
+		
         userInstance.save flush:true
 
         request.withFormat {

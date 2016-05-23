@@ -57,7 +57,10 @@ class AvaluoController {
     }
 
     def create() {
-        respond new Avaluo(params)
+		Avaluo test = new Avaluo(params)
+		test.setLatitud(9.9328051)
+		test.setLongitud(-84.045673)
+        respond test
     }
 
     @Transactional

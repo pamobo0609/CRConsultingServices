@@ -67,7 +67,7 @@ var marker = new google.maps.Marker({
 
 // Error callback function
 function errorFunction(pos) {
-	alert('Error!');
+	
 }
 </script>
 
@@ -127,7 +127,7 @@ function errorFunction(pos) {
 		<g:message code="avaluo.imagen1.label" default="Imagen1" />
 		
 	</label>
-	<input type="file" id="imagen1" name="imagen1" />
+	<input type="file" id="imagen1" name="imagen1" class="file_input" />
 
 </div>
 
